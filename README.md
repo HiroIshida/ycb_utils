@@ -4,8 +4,8 @@ Downloading from official repository is slow. Downloading from google drive repe
 ## Usage
 Install package by `pip3 install -e . ` and then 
 ```
-from ucb_utils import load_file
-mesh = load_file(011_banana)  # mesh is trimesh.Trimesh object
+from ycb_utils import load
+mesh = load("011_banana")  # mesh is trimesh.Trimesh object
 ```
 
 ##  License of stl files

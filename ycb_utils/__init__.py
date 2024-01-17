@@ -4,10 +4,17 @@ from pathlib import Path
 
 
 def load(object_name: str) -> Trimesh:
-    p = Path(__file__).parent / "stl_files" / file_name + ".stl"
-    return load_mesh(p)
+    p = Path(__file__).parent / "stl_files" / (object_name + ".stl")
+    mesh = load_mesh(p)
+    assert isinstance(mesh, Trimesh)
+    return mesh
 
 
 def load_all() -> Dict[str, Trimesh]:
     p = Path(__file__).parent / "stl_files"
-    return {f.stem: load_mesh(f) for f in p.iterdir() if f.suffix == ".stl"}
+    table = {}
+    for fp in p.iterdir():
+        mesh = load_mesh(fp)
+        assert isinstance(mesh, Trimesh)
+        table[fp.stem] = mesh
+    return table
