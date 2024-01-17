@@ -4,7 +4,7 @@ install_requires = ["trimesh"]
 
 setup(
     name="ycb_utils",
-    version="0.0.1",
+    version="0.0.2",
     description="ycb utils",
     author="Hirokazu Ishida",
     author_email="h-ishida@jsk.imi.i.u-tokyo.ac.jp",
