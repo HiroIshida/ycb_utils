@@ -3,8 +3,12 @@ from trimesh import load_mesh, Trimesh
 from pathlib import Path
 
 
+def resolve_path(object_name: str) -> Path:
+    return Path(__file__).parent / "stl_files" / (object_name + ".stl")
+
+
 def load(object_name: str) -> Trimesh:
-    p = Path(__file__).parent / "stl_files" / (object_name + ".stl")
+    p = resolve_path(object_name)
     mesh = load_mesh(p)
     assert isinstance(mesh, Trimesh)
     return mesh
